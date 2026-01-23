@@ -2,10 +2,12 @@ import userData from '../fixtures/userData.json'
 import LoginPage from '../pages/loginPage'
 import DashboardPage from '../pages/dashboardPage'
 import MenuPage from '../pages/menuPage'
+import MyinfoPage from '../pages/myInfoPage'
 
 const pageLogin = new LoginPage()
 const pageDashboard = new DashboardPage()
 const pageMenu = new MenuPage()
+const MyinfoPage = new MyinfoPage()
 
 describe('Página de Login', () => {
 
@@ -31,19 +33,9 @@ describe('Página de Login', () => {
 
     pageMenu.ButtonMyInfo()
  
-    cy.get(selectorsList.firstNameField).clear().type('Caio')
-    cy.get(selectorsList.middleNameField).clear().type('teste')
-    cy.get(selectorsList.lastNameField).clear().type('1234')
-    cy.get(selectorsList.genericNameField).eq(3).clear().type('caioba')
-    cy.get(selectorsList.genericNameField).eq(4).clear().type('caiobatwo')
-    cy.get(selectorsList.genericNameField).eq(5).clear().type('caiobatree')
-    cy.get(selectorsList.genericNameField).eq(6).clear().type('2002-04-30')
-    cy.get(selectorsList.dateCloseButton).click()
-    cy.get(selectorsList.genericComboBox).eq(0).click()
-    cy.get(selectorsList.secondItemComboBox).click()
-    cy.get(selectorsList.genericComboBox).eq(1).click()
-    cy.get(selectorsList.thirdItemComboBox).click()
-    cy.get(selectorsList.submitButton).eq(0).click()
-    cy.get('.oxd-text--toast-message')
+    
+    
+    
+    
   })
 })
