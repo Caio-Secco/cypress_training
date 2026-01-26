@@ -4,6 +4,9 @@ import DashboardPage from '../pages/dashboardPage'
 import MenuPage from '../pages/menuPage'
 import MyInfopage from '../pages/myinfoPage'
 
+const Chance = require('chance')
+
+const chance = new Chance()
 const pageLogin = new LoginPage()
 const pageDashboard = new DashboardPage()
 const pageMenu = new MenuPage()
@@ -19,7 +22,7 @@ describe('Testes Orange', () => {
 
     pageMenu.ButtonMyInfo()
 
-    pageMyInfo.personalDetails('caiotest', 'testtwo', 'seccotest')
+    pageMyInfo.personalDetails(chance.first(), chance.last(), chance.string())
     pageMyInfo.employeedDetails('employeed', 'orherTest', '1324', '2026-01-26')
     pageMyInfo.statusDetails()
     pageMyInfo.saveForm()
