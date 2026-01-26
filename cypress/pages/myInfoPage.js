@@ -1,4 +1,4 @@
-class MyinfoPage {
+class MyInfopage {
 
     selectorsList() {
         const selectors = {
@@ -40,9 +40,7 @@ class MyinfoPage {
     saveForm() {
         cy.get(this.selectorsList().submitButton).eq(0).click()
         cy.get('.oxd-text--toast-message')
-    }
-
-
+    }   
 }
 
-export default MyinfoPage
+export default MyInfopage

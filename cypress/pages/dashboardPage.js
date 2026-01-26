@@ -1,5 +1,5 @@
 class DashboardPage {
-    
+
     selectorsList() {
         const selectors = {
             dashboardGrid: ".orangehrm-dashboard-grid",
@@ -13,9 +13,6 @@ class DashboardPage {
         cy.get(this.selectorsList().dashboardGrid).should('be.visible') //Valida se eralmente está no dashboard
     }
 
-    /*clickButtonPage() {
-        cy.get(this.selectorsList().myInfoButton).click()
-    }*/
 }
 
 export default DashboardPage
