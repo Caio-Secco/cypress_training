@@ -9,23 +9,9 @@ const pageDashboard = new DashboardPage()
 const pageMenu = new MenuPage()
 const pageMyInfo = new MyInfopage()
 
-describe('Página de Login', () => {
+describe('Testes Orange', () => {
 
-  const selectorsList = {
-
-    
-    firstNameField: "[name='firstName']",
-    middleNameField: "[name='middleName']",
-    lastNameField: "[name='lastName']",
-    genericNameField: ".oxd-input--active",
-    dateCloseButton: ".--close",
-    submitButton: "[type='submit']",
-    genericComboBox: '.oxd-select-text--arrow',
-    secondItemComboBox: ':nth-child(27)',
-    thirdItemComboBox: '.oxd-select-dropdown > :nth-child(3)'
-  }
-
-  it('Deve acessar a página de login e realizar o cadastro com sucesso', () => {
+  it('Login - Success - Deve acessar a página de login, incluir todos os dados e salvar com sucesso', () => {
     pageLogin.accessLoginPage()
     pageLogin.loginWhithUser(userData.userSuccess.username, userData.userSuccess.password)
 
@@ -37,10 +23,14 @@ describe('Página de Login', () => {
     pageMyInfo.employeedDetails('employeed', 'orherTest', '1324', '2026-01-26')
     pageMyInfo.statusDetails()
     pageMyInfo.saveForm()
- 
-    
-    
-    
-    
+
   })
+
+  it('Login - Fail - Deve tentar acessar com dados inválidos e retornar mensagem de erro', () => {
+    pageLogin.accessLoginPage()
+    pageLogin.loginWhithUser(userData.userFail.username, userData.userFail.password)
+    pageLogin.alertFail()
+
+  })
+
 })

@@ -5,6 +5,7 @@ class LoginPage {
             usernameField: "[name='username']",
             passwordField: "[name='password']",
             loginButton: "[type='submit']",
+            alertMessage: "[role='alert']"
         }
 
         return selectors
@@ -18,6 +19,10 @@ class LoginPage {
         cy.get(this.selectorsList().usernameField).type(username)
         cy.get(this.selectorsList().passwordField).type(password)
         cy.get(this.selectorsList().loginButton).click()
+    }
+
+    alertFail() {
+        cy.get(this.selectorsList().alertMessage)
     }
 
 }
