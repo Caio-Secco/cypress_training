@@ -14,7 +14,7 @@ const pageMyInfo = new MyInfopage()
 
 describe('Testes Orange', () => {
 
-  it('Login - Success - Deve acessar a página de login, incluir todos os dados e salvar com sucesso', () => {
+  it('Deve fazer o login corretamente ser redirecionado para a página de MyInfo, incluir os dados corretamente e salvar.', () => {
     pageLogin.accessLoginPage()
     pageLogin.loginWhithUser(userData.userSuccess.username, userData.userSuccess.password)
 
@@ -25,6 +25,9 @@ describe('Testes Orange', () => {
     pageMyInfo.personalDetails(chance.first(), chance.last(), chance.string())
     pageMyInfo.employeedDetails('employeed', 'orherTest', '1324', '2026-01-26')
     pageMyInfo.statusDetails()
+
+    pageMyInfo.contactDetailsAdress(chance.street(), chance.street(), chance.city(), chance.state({ full: true }), chance.postal())
+    pageMyInfo.contactDetailsContacts(chance.phone(), chance.phone(), chance.phone(), chance.email(), chance.email())
     pageMyInfo.saveForm()
 
   })
