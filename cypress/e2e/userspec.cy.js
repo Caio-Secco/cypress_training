@@ -50,11 +50,12 @@ describe('Testes Orange', () => {
 
   })
 
-  it.only('Deve acessar á página de PIM, incluir os dados corretamente, incluir o cadastro e após a remove-lo', () => {
+  it.only('Deve acessar á página de PIM, incluir os dados corretamente, incluir o cadastro e após remove-lo', () => {
 
     pageMenu.ButtonPim()
-    pagePim.EmployeeInformation('teste', '123', 'caio')
+    pagePim.EmployeeInformation(chance.first(), chance.fbid(), chance.last())
     pagePim.saveForm()
+    pagePim.EmployeeAdd(chance.first(), chance.first(), chance.last(), chance.postcode())
   })
 
 })

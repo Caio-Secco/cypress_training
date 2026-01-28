@@ -10,7 +10,15 @@ class PimPage {
             optionJob: ':nth-child(3) > span',
             optionSubUnit: '.oxd-select-dropdown > :nth-child(3)',
             selectSupervisor: ':nth-child(4) > span',
-            submitButton: "[type='submit']"
+            submitButton: "[type='submit']",
+            addButton: '.oxd-button--secondary',
+            EmployeeGrid: '.orangehrm-card-container',
+            firstName: "[name='firstName']",
+            middleName: "[name='middleName']",
+            lastName: "[name='lastName']",
+            inputId: "[data-v-1f99f73c='']"
+
+
         }
 
         return selectors
@@ -29,6 +37,17 @@ class PimPage {
         cy.get(this.selectorsList().optionJob).click()
         cy.get(this.selectorsList().genericSelect).eq(3).click()
         cy.get(this.selectorsList().optionSubUnit).click()
+    }
+
+    EmployeeAdd(nameAdd, middleNameAdd, lastNameAdd, otherId) {
+        cy.get(this.selectorsList().addButton).eq(1).click()
+        cy.get(this.selectorsList().EmployeeGrid).should('be.visible')
+        cy.get(this.selectorsList().firstName).type(nameAdd)
+        cy.get(this.selectorsList().middleName).type(middleNameAdd)
+        cy.get(this.selectorsList().lastName).type(lastNameAdd)
+        cy.get(this.selectorsList().inputId).eq(4).clear().type(otherId)
+        cy.get(this.selectorsList().submitButton).click()
+        cy.get('.oxd-text--toast-message').contains('Successfully Saved')
     }
 
     saveForm() {
